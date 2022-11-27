@@ -1,19 +1,30 @@
-﻿public static double TrianglePerimeter(int a, int b, int c, int precision = 2)
+﻿
+try
 {
-    if (precision <= 1 || precision >= 9)
-    {
-        throw new ArgumentOutOfRangeException("wrong arguments");
 
-    }
-    if (a < 0 || b < 0 || c < 0)
+    int a = int.Parse(Console.ReadLine());
+    int b = int.Parse(Console.ReadLine());
+    int c = int.Parse(Console.ReadLine());
+    checked
     {
-        throw new ArgumentOutOfRangeException("wrong arguments");
+        Console.WriteLine(a * b * c);
     }
-
-    if (a + b < c || a + c < b || c + b < a)
-    {
-        throw new ArgumentException("object not exists");
-    }
-    double obwod = a + b + c;
-    return obwod;
 }
+catch (FormatException)
+{
+    Console.WriteLine("format exception, exit");
+}
+catch (ArgumentException)
+{
+    Console.WriteLine("argument exception, exit");
+}
+catch (OverflowException)
+{
+    Console.WriteLine("overflow exception, exit");
+
+}
+catch
+{
+    Console.WriteLine("non supported exception, exit");
+}
+    }
